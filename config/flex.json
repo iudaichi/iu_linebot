@@ -1,0 +1,172 @@
+{
+    "home_room": {
+        "type": "carousel",
+        "contents": [
+            {
+                "type": "bubble",
+                "size": "micro",
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "A組ホームルーム",
+                            "weight": "bold",
+                            "size": "sm",
+                            "wrap": true
+                        }
+                    ],
+                    "spacing": "sm",
+                    "paddingAll": "13px"
+                },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "uri",
+                                "label": "ここをタップ",
+                                "uri": "https://zoom.us/j/7738673962?pwd=eGJGeHFOWVg5dCs3NHc2TkF6QUFoUT09"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "bubble",
+                "size": "micro",
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "B組ホームルーム",
+                            "weight": "bold",
+                            "size": "sm",
+                            "wrap": true
+                        }
+                    ],
+                    "spacing": "sm",
+                    "paddingAll": "13px"
+                },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "uri",
+                                "label": "ここをタップ",
+                                "uri": "https://zoom.us/j/8481016033"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "bubble",
+                "size": "micro",
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "C組ホームルーム",
+                            "weight": "bold",
+                            "size": "sm",
+                            "wrap": true
+                        }
+                    ],
+                    "spacing": "sm",
+                    "paddingAll": "13px"
+                },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "uri",
+                                "label": "ここをタップ",
+                                "uri": "https://zoom.us/j/3626161352"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "bubble",
+                "size": "micro",
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "D組ホームルーム",
+                            "weight": "bold",
+                            "size": "sm",
+                            "wrap": true
+                        }
+                    ],
+                    "spacing": "sm",
+                    "paddingAll": "13px"
+                },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "uri",
+                                "label": "ここをタップ",
+                                "uri": "https://zoom.us/j/3311008294?pwd=bTRkSWxERmNJRFJvc2NTZTlCVXljUT09"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "bubble",
+                "size": "micro",
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "E組ホームルーム",
+                            "weight": "bold",
+                            "size": "sm",
+                            "wrap": true
+                        }
+                    ],
+                    "spacing": "sm",
+                    "paddingAll": "13px"
+                },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "uri",
+                                "label": "ここをタップ",
+                                "uri": "https://zoom.us/j/8909972590?pwd=Z0xLbGZsRVNLUnFjVDZqd2F6U1FDZz09"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
