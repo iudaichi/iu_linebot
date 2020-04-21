@@ -60,9 +60,9 @@
                         {
                             "type": "button",
                             "action": {
-                                "type": "message",
+                                "type": "uri",
                                 "label": "ここをタップ",
-                                "text": "/HR B"
+                                "uri": "https://zoom.us/j/8481016033"
                             }
                         }
                     ]
@@ -93,9 +93,9 @@
                         {
                             "type": "button",
                             "action": {
-                                "type": "message",
+                                "type": "uri",
                                 "label": "ここをタップ",
-                                "text": "/HR C"
+                                "uri": "https://zoom.us/j/3626161352"
                             }
                         }
                     ]
