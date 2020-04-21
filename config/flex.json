@@ -1,5 +1,5 @@
 {
-    "home_room": {
+    "zoom_flex": {
         "type": "carousel",
         "contents": [
             {
@@ -60,9 +60,9 @@
                         {
                             "type": "button",
                             "action": {
-                                "type": "uri",
+                                "type": "message",
                                 "label": "ここをタップ",
-                                "uri": "https://zoom.us/j/8481016033"
+                                "text": "/HR B"
                             }
                         }
                     ]
@@ -93,9 +93,9 @@
                         {
                             "type": "button",
                             "action": {
-                                "type": "uri",
+                                "type": "message",
                                 "label": "ここをタップ",
-                                "uri": "https://zoom.us/j/3626161352"
+                                "text": "/HR C"
                             }
                         }
                     ]
@@ -162,6 +162,39 @@
                                 "type": "uri",
                                 "label": "ここをタップ",
                                 "uri": "https://zoom.us/j/8909972590?pwd=Z0xLbGZsRVNLUnFjVDZqd2F6U1FDZz09"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "bubble",
+                "size": "micro",
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "ラウンジ",
+                            "weight": "bold",
+                            "size": "sm",
+                            "wrap": true
+                        }
+                    ],
+                    "spacing": "sm",
+                    "paddingAll": "13px"
+                },
+                "footer": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "uri",
+                                "label": "ここをタップ",
+                                "uri": "https://www.google.com/url?q=https%3A%2F%2Fzoom.us%2Fj%2F173118668%3Fpwd%3DVWlHQ1R0Mi90MW53MlpRTlRzT3dlUT09&sa=D&sntz=1&usg=AFQjCNGLWIrGdM8yA1oR6VJQ6RkK5idp6Q"
                             }
                         }
                     ]

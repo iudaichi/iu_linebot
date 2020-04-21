@@ -22,11 +22,11 @@ class TextMessageUtil:
         elif message == 'test':
             line_bot_api.reply_message(
                 self.event.reply_token, TextSendMessage(text=str(self.event)))
-        elif message == 'ホームルーム':
+        elif message == 'zoom':
             target_id = self.event.source.group_id if self.event.source.type == "group" else self.event.source.user_id
             with open("./config/flex.json") as f:
                 flex_json = json.load(f)
             flex_message = FlexSendMessage(
-                alt_text='home_room_flex', contents=flex_json["home_room"])
+                alt_text='home_room_flex', contents=flex_json["zoom_flex"])
             line_bot_api.push_message(
                 target_id, messages=flex_message)
