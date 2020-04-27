@@ -26,7 +26,7 @@ class TextMessageUtil:
                 flex_json = json.load(f)
             flex_message = FlexSendMessage(
                 alt_text='home_room_flex', contents=flex_json["zoom_flex"])
-            line_bot_api.push_message(
-                target_id, messages=flex_message)
-            line_bot_api.push_message(
-                target_id, messages=flex_message)
+            line_bot_api.reply_message(
+                self.event.reply_token, messages=flex_message)
+            line_bot_api.reply_message(
+                self.event.reply_token, messages=flex_message)
