@@ -5,6 +5,7 @@ from api import router as api_router
 from utils.line_util import TextMessageUtil
 from linebot.models import MessageEvent, TextMessage
 import json
+from fastapi.staticfiles import StaticFiles
 app = FastAPI()
 
 app.include_router(
@@ -12,6 +13,7 @@ app.include_router(
     prefix="/api",
     tags=["api"],
 )
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 @app.post("/callback")

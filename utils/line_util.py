@@ -1,4 +1,4 @@
-from linebot.models import TextSendMessage, FlexSendMessage
+from linebot.models import TextSendMessage, FlexSendMessage, ImageSendMessage
 from config.line_bot_api import line_bot_api
 import json
 
@@ -28,3 +28,10 @@ class TextMessageUtil:
                 alt_text='home_room_flex', contents=flex_json["zoom_flex"])
             line_bot_api.reply_message(
                 self.event.reply_token, messages=flex_message)
+        elif message == '卒業単位':
+            image_message = ImageSendMessage(
+                original_content_url='https://example.com/original.jpg',
+                preview_image_url='https://example.com/preview.jpg'
+            )
+            line_bot_api.reply_message(
+                self.event.reply_token, messages=image_message)
