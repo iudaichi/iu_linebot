@@ -30,8 +30,8 @@ class TextMessageUtil:
                 self.event.reply_token, messages=flex_message)
         elif message == '卒業単位':
             image_message = ImageSendMessage(
-                original_content_url='https://example.com/original.jpg',
-                preview_image_url='https://example.com/preview.jpg'
+                original_content_url='https://pacific-ocean-18208.herokuapp.com/static/graduation_unit.jpg',
+                preview_image_url='https://pacific-ocean-18208.herokuapp.com/static/graduation_unit.jpg'
             )
             line_bot_api.reply_message(
                 self.event.reply_token, messages=image_message)
