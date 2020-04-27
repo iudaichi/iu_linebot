@@ -1,20 +1,30 @@
-from flask import Flask, request, abort
+from fastapi import FastAPI, Header, Body, HTTPException
 from linebot.exceptions import InvalidSignatureError
 from config.line_bot_api import handler
-from api.router import api_module
+from api import router as api_router
+from utils.line_util import TextMessageUtil
+from linebot.models import MessageEvent, TextMessage
+import json
+app = FastAPI()
 
-app = Flask(__name__)
+app.include_router(
+    api_router.app,
+    prefix="/api",
+    tags=["api"],
+)
 
-app.register_blueprint(api_module)
 
-
-@app.route("/callback", methods=['POST'])
-def callback():
-    signature = request.headers['X-Line-Signature']
-    body = request.get_data(as_text=True)
-    app.logger.info("Request body: " + body)
+@app.post("/callback")
+def callback(X_Line_Signature: str = Header(...), body=Body(...)):
     try:
-        handler.handle(body, signature)
+        body = json.dumps(body, ensure_ascii=False).replace(' ', '')
+        handler.handle(body, X_Line_Signature)
     except InvalidSignatureError:
-        abort(400)
+        raise HTTPException(
+            status_code=400, detail=f"InvalidSignatureError")
     return 'OK'
+
+
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+    TextMessageUtil(event).distribution_message()
