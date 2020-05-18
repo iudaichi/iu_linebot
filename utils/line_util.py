@@ -20,14 +20,6 @@ class TextMessageUtil:
                 alt_text='home_room_flex', contents=flex_json["zoom_flex"])
             line_bot_api.reply_message(
                 self.event.reply_token, messages=flex_message)
-        elif message == 'test21':
-            #            target_id = self.event.source.group_id if self.event.source.type == "group" else self.event.source.user_id
-            with open("./config/flex.json") as f:
-                flex_json = json.load(f)
-            flex_message = FlexSendMessage(
-                alt_text='home_room_flex', contents=flex_json["zoom_flex"])
-            line_bot_api.reply_message(
-                self.event.reply_token, messages=flex_message)
         elif message == '卒業単位':
             image_message = ImageSendMessage(
                 original_content_url='https://pacific-ocean-18208.herokuapp.com/static/graduation_unit.jpg',
