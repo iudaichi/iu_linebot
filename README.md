@@ -12,7 +12,7 @@ flask + line-bot-sdkで作ったIUのLINEBOT.
 - Web development micro framework
 
 ```bash
-    $ pip install Flask
+    $ pip install fastapi[all]
 ```
 - Deploy project to Heroku
 
