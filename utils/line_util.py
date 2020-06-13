@@ -2,6 +2,7 @@ from linebot.models import TextSendMessage, FlexSendMessage, ImageSendMessage
 from config.line_bot_api import line_bot_api
 import json
 import datetime
+import re
 
 
 class TextMessageUtil:
@@ -29,9 +30,12 @@ class TextMessageUtil:
             line_bot_api.reply_message(
                 self.event.reply_token, messages=image_message)
         elif message.startswith('schedule'):
-            split_message = message.split(":")
-            if len(split_message) != 1:
-                now_time = split_message[1]
+            if message != "schedule":
+                split_message = message.split(":")[1]
+                if re.fullmatch(r"\d{4}/\d{2}/\d{2}", split_message[1]):
+                    now_time = split_message
+                else:
+                    return
             else:
                 now_time = datetime.datetime.now().strftime("%Y/%m/%d")
             send_text = f"{now_time}の時間割"
@@ -40,5 +44,9 @@ class TextMessageUtil:
             for v in schedule_json.values():
                 if v['day'] == now_time:
                     send_text += f"\n\n{v['time_table']}時間目\n{v['class_name']}\nPASS : {v['class_room_password']}\nhttps://zoom.us/j/{v['class_room_number']}?"
-            line_bot_api.reply_message(
-                self.event.reply_token, TextSendMessage(text=send_text))
+            if send_text == f"{now_time}の時間割":
+                line_bot_api.reply_message(
+                    self.event.reply_token, TextSendMessage(text=f"申し訳ありません。\n{now_time}の時間割が存在しません。。"))
+            else:
+                line_bot_api.reply_message(
+                    self.event.reply_token, TextSendMessage(text=send_text))
