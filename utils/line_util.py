@@ -39,6 +39,6 @@ class TextMessageUtil:
                 schedule_json = json.load(f)
             for v in schedule_json.values():
                 if v['day'] == now_time:
-                    send_text += f"\n\n{v['time_table']}時間目\n{v['class_name']}\n{v['class_room_number']}\n{v['class_room_password']}\nhttps://zoom.us/j/{v['class_room_number']}?"
+                    send_text += f"\n\n{v['time_table']}時間目\n{v['class_name']}\nPASS : {v['class_room_password']}\nhttps://zoom.us/j/{v['class_room_number']}?"
             line_bot_api.reply_message(
                 self.event.reply_token, TextSendMessage(text=send_text))
