@@ -46,7 +46,7 @@ class TextMessageUtil:
                     send_text += f"\n\n{v['time_table']}時間目\n{v['class_name']}\nPASS : {v['class_room_password']}\nhttps://zoom.us/j/{v['class_room_number']}?"
             if send_text == f"{now_time}の時間割":
                 line_bot_api.reply_message(
-                    self.event.reply_token, TextSendMessage(text=f"申し訳ありません。\n{now_time}の時間割が存在しません。。"))
+                    self.event.reply_token, TextSendMessage(text=f"申し訳ありません。\n{now_time}の時間割が存在しません。"))
             else:
                 line_bot_api.reply_message(
                     self.event.reply_token, TextSendMessage(text=send_text))
