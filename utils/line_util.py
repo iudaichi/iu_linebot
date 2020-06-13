@@ -32,7 +32,7 @@ class TextMessageUtil:
         elif message.startswith('schedule'):
             if message != "schedule":
                 split_message = message.split(":")[1]
-                if re.fullmatch(r"\d{4}/\d{2}/\d{2}", split_message[1]):
+                if re.fullmatch(r"\d{4}/\d{2}/\d{2}", split_message):
                     now_time = split_message
                 else:
                     return
