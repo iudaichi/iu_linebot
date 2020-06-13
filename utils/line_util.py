@@ -32,21 +32,24 @@ class TextMessageUtil:
         elif message.startswith('schedule'):
             if message != "schedule":
                 split_message = message.split(":")[1]
-                if re.fullmatch(r"\d{4}/\d{2}/\d{2}", split_message):
-                    now_time = split_message
+                if re.fullmatch(r"\d{4}", split_message):
+                    now_time = datetime.datetime.now().strftime("%Y/") + \
+                        f"{split_message[0:2]}/{split_message[2:4]}"
                 else:
                     return
             else:
                 now_time = datetime.datetime.now().strftime("%Y/%m/%d")
-            send_text = f"{now_time}の時間割"
+            now_time_split = now_time.split("/")
+            now_time_text = f"{now_time_split[1]}月{now_time_split[2]}日"
+            send_text = f"{now_time_text}の時間割"
             with open("./excel/schedule.json") as f:
                 schedule_json = json.load(f)
             for v in schedule_json.values():
                 if v['day'] == now_time:
                     send_text += f"\n\n{v['time_table']}時間目\n{v['class_name']}\nPASS : {v['class_room_password']}\nhttps://zoom.us/j/{v['class_room_number']}?"
-            if send_text == f"{now_time}の時間割":
+            if send_text == f"{now_time_text}の時間割":
                 line_bot_api.reply_message(
-                    self.event.reply_token, TextSendMessage(text=f"申し訳ありません。\n{now_time}の時間割が存在しません。"))
+                    self.event.reply_token, TextSendMessage(text=f"申し訳ありません。\n{now_time_text}月の日の時間割が存在しません。"))
             else:
                 line_bot_api.reply_message(
                     self.event.reply_token, TextSendMessage(text=send_text))
