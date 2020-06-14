@@ -1,5 +1,6 @@
 from linebot.models import TextSendMessage, FlexSendMessage, ImageSendMessage
 from config.line_bot_api import line_bot_api
+from config.main import JST
 import json
 import datetime
 import re
@@ -13,7 +14,7 @@ class TextMessageUtil:
         message = self.event.message.text
         if message == 'test':
             line_bot_api.reply_message(
-                self.event.reply_token, TextSendMessage(text=str(datetime.datetime.now())))
+                self.event.reply_token, TextSendMessage(text=str(datetime.datetime.now(JST))))
         elif message.startswith('zoom'):
             #             target_id = self.event.source.group_id if self.event.source.type == "group" else self.event.source.user_id
             with open("./config/flex.json") as f:
@@ -33,12 +34,12 @@ class TextMessageUtil:
             if message != "schedule":
                 split_message = message.split(":")[1]
                 if re.fullmatch(r"\d{4}", split_message):
-                    now_time = datetime.datetime.now().strftime("%Y/") + \
+                    now_time = datetime.datetime.now(JST).strftime("%Y/") + \
                         f"{split_message[0:2]}/{split_message[2:4]}"
                 else:
                     return
             else:
-                now_time = datetime.datetime.now().strftime("%Y/%m/%d")
+                now_time = datetime.datetime.now(JST).strftime("%Y/%m/%d")
             now_time_split = now_time.split("/")
             now_time_text = f"{now_time_split[1]}月{now_time_split[2]}日"
             send_text = f"{now_time_text}の時間割"
