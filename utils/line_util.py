@@ -13,7 +13,7 @@ class TextMessageUtil:
         message = self.event.message.text
         if message == 'test':
             line_bot_api.reply_message(
-                self.event.reply_token, TextSendMessage(text=str(self.event)))
+                self.event.reply_token, TextSendMessage(text=str(datetime.datetime.now().strftime("%Y/%m/%d"))))
         elif message.startswith('zoom'):
             #             target_id = self.event.source.group_id if self.event.source.type == "group" else self.event.source.user_id
             with open("./config/flex.json") as f:
