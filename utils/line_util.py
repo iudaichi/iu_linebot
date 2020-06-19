@@ -61,6 +61,10 @@ class TextMessageUtil:
             schedule_json = json.load(f)
         for v in schedule_json.values():
             if v['day'] == now_time:
+                time_table_text = f"{v['time_table']}時間目"
+                class_name_text = f"{v['class_name']}"
+                class_room_password_text = f"pass : {v['class_room_password']}"
+                class_room_url_text = f"https://zoom.us/j/{v['class_room_number']}?"
                 template_json["contents"].append({
                     "type": "bubble",
                     "size": "micro",
@@ -70,21 +74,21 @@ class TextMessageUtil:
                         "contents": [
                             {
                                 "type": "text",
-                                "text": f"{v['time_table']}時間目",
+                                "text": time_table_text,
                                 "weight": "bold",
                                 "size": "sm",
                                 "wrap": True
                             },
                             {
                                 "type": "text",
-                                "text": f"{v['class_name']}",
+                                "text": class_name_text,
                                 "weight": "bold",
                                 "size": "sm",
                                 "wrap": False
                             },
                             {
                                 "type": "text",
-                                "text": f"pass : {v['class_room_password']}",
+                                "text": class_room_password_text,
                                 "weight": "bold",
                                 "size": "sm",
                                 "wrap": True
@@ -102,7 +106,7 @@ class TextMessageUtil:
                                 "action": {
                                     "type": "uri",
                                     "label": "ここをタップ",
-                                    "uri": f"https://zoom.us/j/{v['class_room_number']}?"
+                                    "uri": class_room_url_text
                                 }
                             }
                         ]
