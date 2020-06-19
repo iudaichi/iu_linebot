@@ -56,6 +56,12 @@ class TextMessageUtil:
         line_bot_api.reply_message(
             self.event.reply_token, TextSendMessage(text="test"))
 
+    def send_help(self):
+        with open("./config/help.txt") as f:
+            help_txt = f.read()
+        line_bot_api.reply_message(
+            self.event.reply_token, TextSendMessage(text=help_txt))
+
     def send_schedule(self):
         message = self.event.message.text
         if ":" in message:
