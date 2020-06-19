@@ -59,7 +59,9 @@ class TextMessageUtil:
         template_json = flex_json["test"]
         with open("./config/schedule.json") as f:
             schedule_json = json.load(f)
-        for v in schedule_json.values():
+        for i, v in enumerate(schedule_json.values()):
+            if i == 8:
+                break
             if v['day'] == now_time:
                 time_table_text = f"{v['time_table']}時間目"
                 class_name_text = f"{v['class_name']}"
