@@ -10,7 +10,7 @@ class TextMessageUtil:
     def __init__(self, event):
         self.event = event
 
-    def send_zoom_url(self, event):
+    def send_zoom_url(self):
         with open("./config/flex.json") as f:
             flex_json = json.load(f)
         flex_message = FlexSendMessage(
@@ -18,7 +18,7 @@ class TextMessageUtil:
         line_bot_api.reply_message(
             self.event.reply_token, messages=flex_message)
 
-    def send_unit_image(self, event):
+    def send_unit_image(self):
         image_message = ImageSendMessage(
             original_content_url='https://pacific-ocean-18208.herokuapp.com/static/graduation_unit.jpg',
             preview_image_url='https://pacific-ocean-18208.herokuapp.com/static/graduation_unit.jpg'
@@ -26,7 +26,7 @@ class TextMessageUtil:
         line_bot_api.reply_message(
             self.event.reply_token, messages=image_message)
 
-    def send_schedule(self, event):
+    def send_schedule(self):
         message = self.event.message.text
         if message != "schedule":
             split_message = message.split(":")[1]
