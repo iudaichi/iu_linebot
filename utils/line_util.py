@@ -116,8 +116,6 @@ class TextMessageUtil:
                 }
                 if 10 > limit_count:
                     template_json["contents"].append(add_json)
-                else:
-                    template_json2["contents"].append(add_json)
                 limit_count = limit_count + 1
         print(limit_count)
         print("SSSSSSSSSSSSSSSSSSSSSSSSSS" + str(len(template_json["contents"])))
