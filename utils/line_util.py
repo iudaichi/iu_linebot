@@ -61,6 +61,11 @@ class TextMessageUtil:
         with open("./config/schedule.json") as f:
             schedule_json = json.load(f)
         limit_count = 0
+        messages = []
+        add_flex = {
+            "type": "carousel",
+            "contents": []
+        }
         for v in schedule_json.values():
             if v['day'] == now_time:
                 time_table_text = f"{v['time_table']}時間目"
@@ -114,14 +119,18 @@ class TextMessageUtil:
                         ]
                     }
                 }
-                if 10 > limit_count:
-                    template_json["contents"].append(add_json)
-                limit_count = limit_count + 1
-        print(limit_count)
-        print("SSSSSSSSSSSSSSSSSSSSSSSSSS" + str(len(template_json["contents"])))
-        flex_message = FlexSendMessage(
-            alt_text='home_room_flex', contents=template_json)
-        flex_message2 = FlexSendMessage(
-            alt_text='home_room_flex', contents=template_json2)
+                if 8 == limit_count:
+                    limit_count = 0
+                    flex_message = FlexSendMessage(
+                        alt_text='home_room_flex', contents=add_flex)
+                    messages.append(flex_message)
+                    add_flex = {
+                        "type": "carousel",
+                        "contents": []
+                    }
+                add_flex["contents"].append(add_json)
+                limit_count += 1
+        messages.append(FlexSendMessage(
+            alt_text='home_room_flex', contents=add_flex))
         line_bot_api.reply_message(
             self.event.reply_token, messages=flex_message)
