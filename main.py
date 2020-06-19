@@ -2,7 +2,7 @@ from fastapi import FastAPI, Header, Body, HTTPException
 from linebot.exceptions import InvalidSignatureError
 from config.line_bot_api import handler
 from api import router as api_router
-from utils.line_util import TextMessageUtil
+from utils.line_router import TextMessageRouter
 from linebot.models import MessageEvent, TextMessage
 import json
 from fastapi.staticfiles import StaticFiles
@@ -29,4 +29,4 @@ def callback(X_Line_Signature: str = Header(...), body=Body(...)):
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    TextMessageUtil(event).distribution_message()
+    TextMessageRouter(event).distribution_message()
