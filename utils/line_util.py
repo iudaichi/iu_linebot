@@ -114,11 +114,12 @@ class TextMessageUtil:
                         ]
                     }
                 }
-                if 10 > i:
+                if 9 > i:
                     template_json["contents"].append(add_json)
                 else:
                     template_json2["contents"].append(add_json)
                 i += 1
+        print(i)
         flex_message = FlexSendMessage(
             alt_text='home_room_flex', contents=template_json)
         flex_message2 = FlexSendMessage(
