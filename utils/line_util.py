@@ -57,19 +57,18 @@ class TextMessageUtil:
         with open("./config/flex.json") as f:
             flex_json = json.load(f)
         template_json = flex_json["test"]
+        template_json2 = flex_json["test"]
         with open("./config/schedule.json") as f:
             schedule_json = json.load(f)
         i = 0
         for v in schedule_json.values():
             if v['day'] == now_time:
-                i += 1
-                if i == 8:
-                    break
+
                 time_table_text = f"{v['time_table']}時間目"
                 class_name_text = f"{v['class_name']}"
                 class_room_password_text = f"pass : {v['class_room_password']}"
                 class_room_url_text = f"https://zoom.us/j/{v['class_room_number']}?"
-                template_json["contents"].append({
+                add_json = {
                     "type": "bubble",
                     "size": "micro",
                     "body": {
@@ -115,8 +114,15 @@ class TextMessageUtil:
                             }
                         ]
                     }
-                })
+                }
+                if i > 10:
+                    template_json["contents"].append(add_json)
+                else:
+                    template_json2["contents"].append(add_json)
+                i += 1
         flex_message = FlexSendMessage(
             alt_text='home_room_flex', contents=template_json)
+        flex_message2 = FlexSendMessage(
+            alt_text='home_room_flex', contents=template_json2)
         line_bot_api.reply_message(
-            self.event.reply_token, messages=[flex_message, flex_message])
+            self.event.reply_token, messages=[flex_message, flex_message2])
