@@ -75,6 +75,8 @@ class TextMessageUtil:
         }
         for v in schedule_json.values():
             if v['day'] == now_time:
+                class_name = v['class_name'].replace(
+                    "イノベーションプロジェクト", "イノプロ").replace("英語コア・スキルズ", "コアスキルズ")
                 classroom_num += 1
                 add_json = {
                     "type": "bubble",
@@ -92,7 +94,7 @@ class TextMessageUtil:
                             },
                             {
                                 "type": "text",
-                                "text": f"{v['class_name']}",
+                                "text": class_name,
                                 "weight": "bold",
                                 "size": "sm",
                                 "wrap": False
