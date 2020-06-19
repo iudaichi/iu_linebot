@@ -64,10 +64,6 @@ class TextMessageUtil:
         }
         for v in schedule_json.values():
             if v['day'] == now_time:
-                time_table_text = f"{v['time_table']}時間目"
-                class_name_text = f"{v['class_name']}"
-                class_room_password_text = f"pass : {v['class_room_password']}"
-                class_room_url_text = f"https://zoom.us/j/{v['class_room_number']}?"
                 add_json = {
                     "type": "bubble",
                     "size": "micro",
@@ -77,21 +73,14 @@ class TextMessageUtil:
                         "contents": [
                             {
                                 "type": "text",
-                                "text": time_table_text,
+                                "text": f"{v['time_table']}時間目",
                                 "weight": "bold",
                                 "size": "sm",
                                 "wrap": True
                             },
                             {
                                 "type": "text",
-                                "text": class_name_text,
-                                "weight": "bold",
-                                "size": "sm",
-                                "wrap": False
-                            },
-                            {
-                                "type": "text",
-                                "text": f"{v['teacher_name']}",
+                                "text": f"{v['class_name']}",
                                 "weight": "bold",
                                 "size": "sm",
                                 "wrap": False
@@ -105,7 +94,7 @@ class TextMessageUtil:
                             },
                             {
                                 "type": "text",
-                                "text": class_room_password_text,
+                                "text": f"PASS : {v['class_room_password']}",
                                 "weight": "bold",
                                 "size": "sm",
                                 "wrap": True
@@ -124,7 +113,7 @@ class TextMessageUtil:
                                 "action": {
                                     "type": "uri",
                                     "label": "ここをタップ",
-                                    "uri": class_room_url_text
+                                    "uri": f"https://zoom.us/j/{v['class_room_number']}?"
                                 }
                             }
                         ]
