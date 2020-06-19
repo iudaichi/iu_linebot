@@ -7,7 +7,7 @@ class TextMessageRouter:
 
     def distribution_message(self):
         message = self.event.message.text
-        if message == 'test':
+        if message.startswith('test'):
             TextMessageUtil(self.event).send_test()
         elif message.startswith('zoom'):
             TextMessageUtil(self.event).send_zoom_url()
