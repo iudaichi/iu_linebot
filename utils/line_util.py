@@ -61,7 +61,7 @@ class TextMessageUtil:
             schedule_json = json.load(f)
         for v in schedule_json.values():
             if v['day'] == now_time:
-                time_table_text = f"{v['time_table'].decode('unicode-escape')}時間目"
+                time_table_text = f"{v['time_table']}時間目"
                 class_name_text = f"{v['class_name'].decode('unicode-escape')}"
                 class_room_password_text = f"pass : {v['class_room_password']}"
                 class_room_url_text = f"https://zoom.us/j/{v['class_room_number'].decode('unicode-escape')}?"
