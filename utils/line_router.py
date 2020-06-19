@@ -1,4 +1,4 @@
-from line_util import TextMessageUtil
+from utils.line_util import TextMessageUtil
 
 
 class TextMessageRouter:
