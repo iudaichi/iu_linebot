@@ -54,10 +54,6 @@ class TextMessageUtil:
 
     def send_test(self):
         now_time = datetime.datetime.now(JST).strftime("%Y/%m/%d")
-        with open("./config/flex.json") as f:
-            flex_json = json.load(f)
-        template_json = flex_json["test"]
-        template_json2 = flex_json["test"]
         with open("./config/schedule.json") as f:
             schedule_json = json.load(f)
         limit_count = 0
@@ -121,9 +117,8 @@ class TextMessageUtil:
                 }
                 if 8 == limit_count:
                     limit_count = 0
-                    flex_message = FlexSendMessage(
-                        alt_text='home_room_flex', contents=add_flex)
-                    messages.append(flex_message)
+                    messages.append(FlexSendMessage(
+                        alt_text='home_room_flex', contents=add_flex))
                     add_flex = {
                         "type": "carousel",
                         "contents": []
@@ -133,4 +128,4 @@ class TextMessageUtil:
         messages.append(FlexSendMessage(
             alt_text='home_room_flex', contents=add_flex))
         line_bot_api.reply_message(
-            self.event.reply_token, messages=flex_message)
+            self.event.reply_token, messages=messages)
