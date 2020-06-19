@@ -1,5 +1,5 @@
 # linebot
-flask + line-bot-sdkで作ったIUのLINEBOT.
+fastapi + line-bot-sdkで作ったIUのLINEBOT.
 
 
 ## Requirements
