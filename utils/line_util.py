@@ -53,56 +53,61 @@ class TextMessageUtil:
                 self.event.reply_token, TextSendMessage(text=send_text))
 
     def send_test(self):
+        now_time = datetime.datetime.now(JST).strftime("%Y/%m/%d")
         with open("./config/flex.json") as f:
             flex_json = json.load(f)
         template_json = flex_json["test"]
-        template_json["contents"].append({
-            "type": "bubble",
-            "size": "micro",
-            "body": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                    {
-                        "type": "text",
-                        "text": "2時間目",
-                        "weight": "bold",
-                        "size": "sm",
-                        "wrap": True
+        with open("./config/schedule.json") as f:
+            schedule_json = json.load(f)
+        for v in schedule_json.values():
+            if v['day'] == now_time:
+                template_json["contents"].append({
+                    "type": "bubble",
+                    "size": "micro",
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": f"{v['time_table']}時間目",
+                                "weight": "bold",
+                                "size": "sm",
+                                "wrap": True
+                            },
+                            {
+                                "type": "text",
+                                "text": f"{v['class_name']}",
+                                "weight": "bold",
+                                "size": "sm",
+                                "wrap": False
+                            },
+                            {
+                                "type": "text",
+                                "text": f"pass : {v['class_room_password']}",
+                                "weight": "bold",
+                                "size": "sm",
+                                "wrap": True
+                            }
+                        ],
+                        "spacing": "sm",
+                        "paddingAll": "13px"
                     },
-                    {
-                        "type": "text",
-                        "text": "イノベーションプロジェクト",
-                        "weight": "bold",
-                        "size": "sm",
-                        "wrap": False
-                    },
-                    {
-                        "type": "text",
-                        "text": "pass : 927233",
-                        "weight": "bold",
-                        "size": "sm",
-                        "wrap": True
+                    "footer": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "button",
+                                "action": {
+                                    "type": "uri",
+                                    "label": "ここをタップ",
+                                    "uri": f"https://zoom.us/j/{v['class_room_number']}?"
+                                }
+                            }
+                        ]
                     }
-                ],
-                "spacing": "sm",
-                "paddingAll": "13px"
-            },
-            "footer": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                    {
-                        "type": "button",
-                        "action": {
-                            "type": "uri",
-                            "label": "ここをタップ",
-                            "uri": "https://www.google.com/url?q=https%3A%2F%2Fzoom.us%2Fj%2F173118668%3Fpwd%3DVWlHQ1R0Mi90MW53MlpRTlRzT3dlUT09&sa=D&sntz=1&usg=AFQjCNGLWIrGdM8yA1oR6VJQ6RkK5idp6Q"
-                        }
-                    }
-                ]
-            }
-        })
+                })
         flex_message = FlexSendMessage(
             alt_text='home_room_flex', contents=template_json)
         line_bot_api.reply_message(
