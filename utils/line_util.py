@@ -60,17 +60,31 @@ class TextMessageUtil:
             "type": "bubble",
             "size": "micro",
             "body": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [
-                        {
-                            "type": "text",
-                            "text": "ラウンジ",
-                            "weight": "bold",
-                            "size": "sm",
-                            "wrap": True
-                        }
-                    ],
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "2時間目",
+                        "weight": "bold",
+                        "size": "sm",
+                        "wrap": True
+                    },
+                    {
+                        "type": "text",
+                        "text": "イノベーションプロジェクト",
+                        "weight": "bold",
+                        "size": "sm",
+                        "wrap": False
+                    },
+                    {
+                        "type": "text",
+                        "text": "pass : 927233",
+                        "weight": "bold",
+                        "size": "sm",
+                        "wrap": True
+                    }
+                ],
                 "spacing": "sm",
                 "paddingAll": "13px"
             },
@@ -78,14 +92,14 @@ class TextMessageUtil:
                 "type": "box",
                 "layout": "vertical",
                 "contents": [
-                        {
-                            "type": "button",
-                            "action": {
-                                "type": "uri",
-                                "label": "ここをタップ",
-                                "uri": "https://www.google.com/url?q=https%3A%2F%2Fzoom.us%2Fj%2F173118668%3Fpwd%3DVWlHQ1R0Mi90MW53MlpRTlRzT3dlUT09&sa=D&sntz=1&usg=AFQjCNGLWIrGdM8yA1oR6VJQ6RkK5idp6Q"
-                            }
+                    {
+                        "type": "button",
+                        "action": {
+                            "type": "uri",
+                            "label": "ここをタップ",
+                            "uri": "https://www.google.com/url?q=https%3A%2F%2Fzoom.us%2Fj%2F173118668%3Fpwd%3DVWlHQ1R0Mi90MW53MlpRTlRzT3dlUT09&sa=D&sntz=1&usg=AFQjCNGLWIrGdM8yA1oR6VJQ6RkK5idp6Q"
                         }
+                    }
                 ]
             }
         })
