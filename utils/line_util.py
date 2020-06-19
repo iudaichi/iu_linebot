@@ -58,7 +58,7 @@ class TextMessageUtil:
 
     def send_schedule(self):
         message = self.event.message.text
-        if message != "スケジュール":
+        if ":" in message:
             split_message = message.split(":")[1]
             if re.fullmatch(r"\d{4}", split_message):
                 now_time = datetime.datetime.now(JST).strftime("%Y/") + \
