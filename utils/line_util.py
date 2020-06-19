@@ -120,9 +120,10 @@ class TextMessageUtil:
                     template_json2["contents"].append(add_json)
                 i += 1
         print(i)
+        print("SSSSSSSSSSSSSSSSSSSSSSSSSS" + len(template_json["contents"]))
         flex_message = FlexSendMessage(
             alt_text='home_room_flex', contents=template_json)
         flex_message2 = FlexSendMessage(
             alt_text='home_room_flex', contents=template_json2)
         line_bot_api.reply_message(
-            self.event.reply_token, messages=[flex_message])
+            self.event.reply_token, messages=flex_message)
