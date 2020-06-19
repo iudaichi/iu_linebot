@@ -119,9 +119,8 @@ class TextMessageUtil:
                 else:
                     template_json2["contents"].append(add_json)
                 limit_count = limit_count + 1
-        print(i)
-        print("SSSSSSSSSSSSSSSSSSSSSSSSSS" +
-              str(len(template_json["contents"])))
+        print(limit_count)
+        print("SSSSSSSSSSSSSSSSSSSSSSSSSS" + str(len(template_json["contents"])))
         flex_message = FlexSendMessage(
             alt_text='home_room_flex', contents=template_json)
         flex_message2 = FlexSendMessage(
