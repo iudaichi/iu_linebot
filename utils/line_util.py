@@ -119,4 +119,4 @@ class TextMessageUtil:
         flex_message = FlexSendMessage(
             alt_text='home_room_flex', contents=template_json)
         line_bot_api.reply_message(
-            self.event.reply_token, messages=flex_message)
+            self.event.reply_token, messages=[flex_message, flex_message])
