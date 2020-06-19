@@ -115,7 +115,7 @@ class TextMessageUtil:
                         ]
                     }
                 }
-                if 8 == limit_count:
+                if 10 == limit_count:
                     limit_count = 0
                     messages.append(FlexSendMessage(
                         alt_text='home_room_flex', contents=add_flex))
