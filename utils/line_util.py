@@ -91,11 +91,26 @@ class TextMessageUtil:
                             },
                             {
                                 "type": "text",
+                                "text": f"{v['teacher_name']}",
+                                "weight": "bold",
+                                "size": "sm",
+                                "wrap": False
+                            },
+                            {
+                                "type": "text",
+                                "text": f"ID : {v['class_room_number']}",
+                                "weight": "bold",
+                                "size": "sm",
+                                "wrap": True
+                            },
+                            {
+                                "type": "text",
                                 "text": class_room_password_text,
                                 "weight": "bold",
                                 "size": "sm",
                                 "wrap": True
-                            }
+                            },
+
                         ],
                         "spacing": "sm",
                         "paddingAll": "13px"
