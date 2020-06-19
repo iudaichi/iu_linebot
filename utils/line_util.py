@@ -114,7 +114,7 @@ class TextMessageUtil:
                         ]
                     }
                 }
-                if i > 9:
+                if 10 > i:
                     template_json["contents"].append(add_json)
                 else:
                     template_json2["contents"].append(add_json)
