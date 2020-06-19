@@ -53,10 +53,21 @@ class TextMessageUtil:
                 self.event.reply_token, TextSendMessage(text=send_text))
 
     def send_test(self):
-        now_time = datetime.datetime.now(JST).strftime("%Y/%m/%d")
+        message = self.event.message.text
+        if message != "test":
+            split_message = message.split(":")[1]
+            if re.fullmatch(r"\d{4}", split_message):
+                now_time = datetime.datetime.now(JST).strftime("%Y/") + \
+                    f"{split_message[0:2]}/{split_message[2:4]}"
+            else:
+                return
+        else:
+            now_time = datetime.datetime.now(JST).strftime("%Y/%m/%d")
+        now_time_split = now_time.split("/")
         with open("./config/schedule.json") as f:
             schedule_json = json.load(f)
         limit_count = 0
+        classroom_num = 0
         messages = []
         add_flex = {
             "type": "carousel",
@@ -64,6 +75,7 @@ class TextMessageUtil:
         }
         for v in schedule_json.values():
             if v['day'] == now_time:
+                classroom_num += 1
                 add_json = {
                     "type": "bubble",
                     "size": "micro",
@@ -129,7 +141,15 @@ class TextMessageUtil:
                     }
                 add_flex["contents"].append(add_json)
                 limit_count += 1
-        messages.append(FlexSendMessage(
-            alt_text='home_room_flex', contents=add_flex))
+        if limit_count != 0:
+            messages.append(FlexSendMessage(
+                alt_text='home_room_flex', contents=add_flex))
+        if classroom_num != 0:
+            text_send_message = TextSendMessage(
+                text=f"{now_time_split[1]}月{now_time_split[2]}日の時間割")
+        else:
+            text_send_message = TextSendMessage(
+                text=f"申し訳ありません。\n{now_time_split[1]}月{now_time_split[2]}日の時間割が存在しません。")
+        messages.insert(0, text_send_message)
         line_bot_api.reply_message(
             self.event.reply_token, messages=messages)
