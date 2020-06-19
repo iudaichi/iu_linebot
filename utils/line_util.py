@@ -53,5 +53,43 @@ class TextMessageUtil:
                 self.event.reply_token, TextSendMessage(text=send_text))
 
     def send_test(self):
+        with open("./config/flex.json") as f:
+            flex_json = json.load(f)
+        template_json = flex_json["test"]
+        template_json["contents"].append({
+            "type": "bubble",
+            "size": "micro",
+            "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "ラウンジ",
+                            "weight": "bold",
+                            "size": "sm",
+                            "wrap": True
+                        }
+                    ],
+                "spacing": "sm",
+                "paddingAll": "13px"
+            },
+            "footer": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                        {
+                            "type": "button",
+                            "action": {
+                                "type": "uri",
+                                "label": "ここをタップ",
+                                "uri": "https://www.google.com/url?q=https%3A%2F%2Fzoom.us%2Fj%2F173118668%3Fpwd%3DVWlHQ1R0Mi90MW53MlpRTlRzT3dlUT09&sa=D&sntz=1&usg=AFQjCNGLWIrGdM8yA1oR6VJQ6RkK5idp6Q"
+                            }
+                        }
+                ]
+            }
+        })
+        flex_message = FlexSendMessage(
+            alt_text='home_room_flex', contents=template_json)
         line_bot_api.reply_message(
-            self.event.reply_token, TextSendMessage(text=str(datetime.datetime.now(JST))))
+            self.event.reply_token, messages=flex_message)

@@ -36,5 +36,9 @@
                 }
             }
         ]
+    },
+    "test": {
+        "type": "carousel",
+        "contents": []
     }
 }
