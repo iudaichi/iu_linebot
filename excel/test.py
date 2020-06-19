@@ -13,6 +13,8 @@ book_sheet = xlrd.open_workbook("0612.xlsx").sheets()[0]
 for i in range(book_sheet.nrows):
     values_list.append(book_sheet.row_values(i))
 for i, x in enumerate(values_list[2:]):
+    x[3].replace("イノベーションプロジェクト", "イノプロ")
+    x[3].replace("英語コア・スキルズ", "コアスキルズ")
     values_dict[i] = {
         "day_of_week": x[0],
         "time_table": int(x[1]) if type(x[1]) == float else str(x[1]),
