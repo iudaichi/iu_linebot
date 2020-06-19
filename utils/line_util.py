@@ -60,7 +60,7 @@ class TextMessageUtil:
         template_json2 = flex_json["test"]
         with open("./config/schedule.json") as f:
             schedule_json = json.load(f)
-        i = 0
+        limit_count = 0
         for v in schedule_json.values():
             if v['day'] == now_time:
                 time_table_text = f"{v['time_table']}時間目"
@@ -114,13 +114,14 @@ class TextMessageUtil:
                         ]
                     }
                 }
-                if 6 > i:
+                if 10 > limit_count:
                     template_json["contents"].append(add_json)
                 else:
                     template_json2["contents"].append(add_json)
-                i += 1
+                limit_count = limit_count + 1
         print(i)
-        print("SSSSSSSSSSSSSSSSSSSSSSSSSS" + str(len(template_json["contents"])))
+        print("SSSSSSSSSSSSSSSSSSSSSSSSSS" +
+              str(len(template_json["contents"])))
         flex_message = FlexSendMessage(
             alt_text='home_room_flex', contents=template_json)
         flex_message2 = FlexSendMessage(
