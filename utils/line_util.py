@@ -165,3 +165,13 @@ class TextMessageUtil:
         messages.insert(0, text_send_message)
         line_bot_api.reply_message(
             self.event.reply_token, messages=messages)
+    def send_english_schedule(self):
+        message = self.event.message.text
+        school_number = message.split(":")[1].upper()
+        with open("./config/english_test_schedule.json") as f:
+            schedule_json = json.load(f)
+        text_send_message = TextSendMessage(
+                text=f"{schedule_json}")
+        messages.insert(0, text_send_message)
+        line_bot_api.reply_message(
+            self.event.reply_token, messages=messages)
