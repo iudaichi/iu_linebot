@@ -172,6 +172,8 @@ class TextMessageUtil:
         with open("./config/english_test_schedule.json") as f:
             schedule_json = json.load(f)
         print(schedule_json)
+        print(type(schedule_json))
+        print(school_number)
         if school_number in schedule_json:
             text_send_message = TextSendMessage(
                     text=f"{schedule_json[school_number]}")
