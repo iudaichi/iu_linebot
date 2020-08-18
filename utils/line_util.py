@@ -174,7 +174,7 @@ class TextMessageUtil:
         print(schedule_json)
         if school_number in schedule_json:
             text_send_message = TextSendMessage(
-                    text=f"{schedule_json[schedule_json]}")
+                    text=f"{schedule_json[school_number]}")
         messages.insert(0, text_send_message)
         line_bot_api.reply_message(
             self.event.reply_token, messages=messages)
