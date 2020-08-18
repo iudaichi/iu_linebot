@@ -11,7 +11,7 @@ class TextMessageRouter:
         #     TextMessageUtil(self.event).send_test()
         # elif message.startswith('zoom'):
         #     TextMessageUtil(self.event).send_zoom_url()
-        elif message.startswith('卒業単位'):
+        if message.startswith('卒業単位'):
             TextMessageUtil(self.event).send_unit_image()
         elif message.startswith('スケジュール'):
             TextMessageUtil(self.event).send_schedule()
