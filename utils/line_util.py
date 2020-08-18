@@ -167,6 +167,7 @@ class TextMessageUtil:
             self.event.reply_token, messages=messages)
     def send_english_schedule(self):
         message = self.event.message.text
+        messages = []
         school_number = message.split(":")[1].upper()
         with open("./config/english_test_schedule.json") as f:
             schedule_json = json.load(f)
