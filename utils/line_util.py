@@ -175,7 +175,6 @@ class TextMessageUtil:
         if school_number in schedule_json:
             S = schedule_json[school_number]
             room_info = schedule_json[S[2]]
-room_info[0]
             text_send_message = TextSendMessage(
                     text=f"あなたは{S[0]}日の{S[1]}からです。\nURL\nhttps://zoom.us/i/{room_info[0]}?\nID\n{room_info[0]}\nパスワード\n{room_info[1]}")
         messages.insert(0, text_send_message)
