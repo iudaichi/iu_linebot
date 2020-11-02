@@ -1,0 +1,117 @@
+{
+    "0": {
+        "day_of_week": 0,
+        "time_table": 2,
+        "class_name": "リサーチ入門",
+        "class_room_number": "91593460762",
+        "class_room_password": "668145"
+    },
+    "1": {
+        "day_of_week": 0,
+        "time_table": 3,
+        "class_name": "ビジネス英語実習Ⅱ(1)",
+        "class_room_number": "95948516980",
+        "class_room_password": "766778"
+    },
+    "2": {
+        "day_of_week": 0,
+        "time_table": 4,
+        "class_name": "ビジネス英語実習Ⅱ(2)",
+        "class_room_number": "95100452974",
+        "class_room_password": "164903"
+    },
+    "3": {
+        "day_of_week": 0,
+        "time_table": 5,
+        "class_name": "オペレーティングシステム演習",
+        "class_room_number": "92161185523",
+        "class_room_password": "843059"
+    },
+    "4": {
+        "day_of_week": 0,
+        "time_table": 5,
+        "class_name": "コンピュータアーキテクチャ",
+        "class_room_number": "9202482606",
+        "class_room_password": "324622"
+    },
+    "12": {
+        "day_of_week": "\u6708",
+        "time_table": 4,
+        "class_time": "14:40\uff5e16:10",
+        "class_name": "\u30de\u30fc\u30b1\u30c6\u30a3\u30f3\u30b0\u57fa\u790e",
+        "teacher_name": "\u5bcc\u6fa4 \u8c4a",
+        "day": "2020/08/03",
+        "class_room_number": "98058609737",
+        "class_room_password": "820067"
+    },
+    "13": {
+        "day_of_week": "\u6708",
+        "time_table": 5,
+        "class_time": "16:20\uff5e17:50",
+        "class_name": "\u30d7\u30ed\u30b0\u30e9\u30df\u30f3\u30b0\u2160",
+        "teacher_name": "\u5bfa\u8107 \u7531\u7d00",
+        "day": "2020/08/03",
+        "class_room_number": "92630155423",
+        "class_room_password": "856869"
+    },
+    "14": {
+        "day_of_week": "\u706b",
+        "time_table": 1,
+        "class_time": "9:00\uff5e10:30",
+        "class_name": "\u30d3\u30b8\u30cd\u30b9\u82f1\u8a9e\u2160\u2466",
+        "teacher_name": "\u5009\u517c \u5229\u6797",
+        "day": "2020/08/04",
+        "class_room_number": "99001724497",
+        "class_room_password": "577048"
+    },
+    "15": {
+        "day_of_week": "\u706b",
+        "time_table": 1,
+        "class_time": "9:00\uff5e10:30",
+        "class_name": "\u30de\u30fc\u30b1\u30c6\u30a3\u30f3\u30b0\u57fa\u790e",
+        "teacher_name": "\u5bcc\u6fa4 \u8c4a",
+        "day": "2020/08/04",
+        "class_room_number": "99975463578",
+        "class_room_password": "723292"
+    },
+    "16": {
+        "day_of_week": "\u706b",
+        "time_table": 2,
+        "class_time": "10:40\uff5e12:10",
+        "class_name": "\u30d3\u30b8\u30cd\u30b9\u82f1\u8a9e\u2160\u2469",
+        "teacher_name": "HUG JOSE",
+        "day": "2020/08/04",
+        "class_room_number": "7690293589",
+        "class_room_password": "92669340"
+    },
+    "17": {
+        "day_of_week": "\u706b",
+        "time_table": 2,
+        "class_time": "10:40\uff5e12:10",
+        "class_name": "\u6570\u5b66\u57fa\u790eA",
+        "teacher_name": "\u78ef \u4fca\u6a39",
+        "day": "2020/08/04",
+        "class_room_number": "97745988747",
+        "class_room_password": "935049"
+    },
+    "18": {
+        "day_of_week": "\u706b",
+        "time_table": 2,
+        "class_time": "10:40\uff5e12:10",
+        "class_name": "\u30c7\u30fc\u30bf\u69cb\u9020\u3068\u51e6\u7406\u6cd5",
+        "teacher_name": "\u7247\u6850 \u96c5\u4e8c",
+        "day": "2020/08/04",
+        "class_room_number": "97664392987",
+        "class_room_password": "719408"
+    },
+    "19": {
+        "day_of_week": "\u706b",
+        "time_table": 2,
+        "class_time": "10:40\uff5e12:10",
+        "class_name": "\u30de\u30fc\u30b1\u30c6\u30a3\u30f3\u30b0\u57fa\u790e",
+        "teacher_name": "\u5bcc\u6fa4 \u8c4a",
+        "day": "2020/08/04",
+        "class_room_number": "91390279572",
+        "class_room_password": "267202"
+    }
+}

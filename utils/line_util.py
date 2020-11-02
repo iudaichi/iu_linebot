@@ -165,3 +165,107 @@ class TextMessageUtil:
         messages.insert(0, text_send_message)
         line_bot_api.reply_message(
             self.event.reply_token, messages=messages)
+
+    def send_schedule_e(self):
+        message = self.event.message.text
+        if ":" in message:
+            split_message = message.split(":")[1]
+            if re.fullmatch(r"\d{4}", split_message):
+                now_time = datetime.datetime.now(JST).strftime("%Y/") + \
+                    f"{split_message[0:2]}/{split_message[2:4]}"
+            else:
+                return
+        else:
+            now_time = datetime.datetime.now(JST).strftime("%Y/%m/%d")
+        now_time_split = now_time.split("/")
+        with open("./config/schedule.json") as f:
+            schedule_json = json.load(f)
+        limit_count = 0
+        classroom_num = 0
+        messages = []
+        add_flex = {
+            "type": "carousel",
+            "contents": []
+        }
+        for v in schedule_json.values():
+            if v['day'] == now_time:
+                class_name = v['class_name'].replace(
+                    "イノベーションプロジェクト", "イノプロ").replace("英語コア・スキルズ", "コアスキルズ")
+                classroom_num += 1
+                add_json = {
+                    "type": "bubble",
+                    "size": "micro",
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": f"{v['time_table']}時間目",
+                                "weight": "bold",
+                                "size": "sm",
+                                "wrap": True
+                            },
+                            {
+                                "type": "text",
+                                "text": class_name,
+                                "weight": "bold",
+                                "size": "sm",
+                                "wrap": False
+                            },
+                            {
+                                "type": "text",
+                                "text": f"ID : {v['class_room_number']}",
+                                "weight": "bold",
+                                "size": "sm",
+                                "wrap": True
+                            },
+                            {
+                                "type": "text",
+                                "text": f"PASS : {v['class_room_password']}",
+                                "weight": "bold",
+                                "size": "sm",
+                                "wrap": True
+                            },
+
+                        ],
+                        "spacing": "sm",
+                        "paddingAll": "13px"
+                    },
+                    "footer": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "button",
+                                "action": {
+                                    "type": "uri",
+                                    "label": "ここをタップ",
+                                    "uri": f"https://zoom.us/j/{v['class_room_number']}?"
+                                }
+                            }
+                        ]
+                    }
+                }
+                if 10 == limit_count:
+                    limit_count = 0
+                    messages.append(FlexSendMessage(
+                        alt_text='home_room_flex', contents=add_flex))
+                    add_flex = {
+                        "type": "carousel",
+                        "contents": []
+                    }
+                add_flex["contents"].append(add_json)
+                limit_count += 1
+        if limit_count != 0:
+            messages.append(FlexSendMessage(
+                alt_text='home_room_flex', contents=add_flex))
+        if classroom_num != 0:
+            text_send_message = TextSendMessage(
+                text=f"{now_time_split[1]}月{now_time_split[2]}日の時間割")
+        else:
+            text_send_message = TextSendMessage(
+                text=f"申し訳ありません。\n{now_time_split[1]}月{now_time_split[2]}日の時間割が存在しません。")
+        messages.insert(0, text_send_message)
+        line_bot_api.reply_message(
+            self.event.reply_token, messages=messages)
