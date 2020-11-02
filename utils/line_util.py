@@ -181,6 +181,7 @@ class TextMessageUtil:
             "contents": []
         }
         for v in schedule_json.values():
+            print(v)
             if v['class_number'] == class_number:
                 class_name = v['class_name']
                 classroom_num += 1
@@ -239,14 +240,6 @@ class TextMessageUtil:
                         ]
                     }
                 }
-                if 10 == limit_count:
-                    limit_count = 0
-                    messages.append(FlexSendMessage(
-                        alt_text='home_room_flex', contents=add_flex))
-                    add_flex = {
-                        "type": "carousel",
-                        "contents": []
-                    }
                 add_flex["contents"].append(add_json)
                 limit_count += 1
         if limit_count != 0:
