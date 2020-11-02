@@ -170,7 +170,7 @@ class TextMessageUtil:
         message = self.event.message.text
         class_number = "e"
         print(class_number)
-        now_time = datetime.datetime.now(JST).strftime("%Y/%m/%d")
+        now_time = datetime.datetime.now(JST)
         print(now_time.weekday())
         with open("./config/schedule_e.json") as f:
             schedule_json = json.load(f)
