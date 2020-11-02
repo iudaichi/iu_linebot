@@ -1,5 +1,6 @@
 {
     "0": {
+        "class_number": "e",
         "day_of_week": 0,
         "time_table": 2,
         "class_name": "リサーチ入門",
@@ -7,6 +8,7 @@
         "class_room_password": "668145"
     },
     "1": {
+        "class_number": "e",
         "day_of_week": 0,
         "time_table": 3,
         "class_name": "ビジネス英語実習Ⅱ(1)",
@@ -14,6 +16,7 @@
         "class_room_password": "766778"
     },
     "2": {
+        "class_number": "e",
         "day_of_week": 0,
         "time_table": 4,
         "class_name": "ビジネス英語実習Ⅱ(2)",
@@ -21,6 +24,7 @@
         "class_room_password": "164903"
     },
     "3": {
+        "class_number": "e",
         "day_of_week": 0,
         "time_table": 5,
         "class_name": "オペレーティングシステム演習",
