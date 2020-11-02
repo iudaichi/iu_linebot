@@ -169,7 +169,7 @@ class TextMessageUtil:
     def send_schedule_e(self):
         message = self.event.message.text
         class_number = "e"
-
+        print(class_number)
         now_time = datetime.datetime.now(JST).strftime("%Y/%m/%d")
         with open("./config/schedule_e.json") as f:
             schedule_json = json.load(f)
@@ -183,6 +183,7 @@ class TextMessageUtil:
         for v in schedule_json.values():
             print(v)
             if v['class_number'] == class_number:
+                print("ssssss")
                 class_name = v['class_name']
                 classroom_num += 1
                 add_json = {
