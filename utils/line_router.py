@@ -15,7 +15,7 @@ class TextMessageRouter:
             TextMessageUtil(self.event).send_unit_image()
         elif message.startswith('スケジュール'):
             TextMessageUtil(self.event).send_schedule()
-        elif message.startswith('スケジュールe'):
+        elif message.startswith('new'):
             print("fwaSSSS")
             TextMessageUtil(self.event).send_schedule_e()
         elif message.startswith('ヘルプ'):
