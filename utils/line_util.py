@@ -171,7 +171,7 @@ class TextMessageUtil:
         class_number = "e"
 
         now_time = datetime.datetime.now(JST).strftime("%Y/%m/%d")
-        with open("./config/schedule.json") as f:
+        with open("./config/schedule_e.json") as f:
             schedule_json = json.load(f)
         limit_count = 0
         classroom_num = 0
