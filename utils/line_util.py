@@ -171,6 +171,7 @@ class TextMessageUtil:
         class_number = "e"
         print(class_number)
         now_time = datetime.datetime.now(JST).strftime("%Y/%m/%d")
+        print(now_time.weekday())
         with open("./config/schedule_e.json") as f:
             schedule_json = json.load(f)
         limit_count = 0
@@ -181,8 +182,7 @@ class TextMessageUtil:
             "contents": []
         }
         for v in schedule_json.values():
-            print(v)
-            if v['class_number'] == class_number:
+            if v['class_number'] == class_number and v['day_of_week'] == now_time.weekday():
                 print("ssssss")
                 class_name = v['class_name']
                 classroom_num += 1
