@@ -248,10 +248,10 @@ class TextMessageUtil:
                 alt_text='home_room_flex', contents=add_flex))
         if classroom_num != 0:
             text_send_message = TextSendMessage(
-                text="日の時間割")
+                text=f"{class_number}組の今日の時間割はこちらです。")
         else:
             text_send_message = TextSendMessage(
-                text="申し訳ありません。")
+                text="申し訳ありません。\n今日の時間割が存在しません。")
         messages.insert(0, text_send_message)
         line_bot_api.reply_message(
             self.event.reply_token, messages=messages)
