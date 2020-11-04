@@ -168,7 +168,13 @@ class TextMessageUtil:
 
     def send_schedule_e(self):
         message = self.event.message.text
-        class_number = "e"
+        get_number = re.compile('[a-z]+').findall(message)
+        if not get_number:
+            line_bot_api.reply_message(
+                self.event.reply_token, TextSendMessage(
+                    text="クラスを入力してください。"))
+            return
+        class_number = get_number[0].lower()
         print(class_number)
         now_time = datetime.datetime.now(JST)
         print(now_time.weekday())
@@ -181,7 +187,7 @@ class TextMessageUtil:
             "type": "carousel",
             "contents": []
         }
-        for v in schedule_json.values():
+        for v in schedule_json["data"]:
             if v['class_number'] == class_number and v['day_of_week'] == now_time.weekday():
                 print("ssssss")
                 class_name = v['class_name']
